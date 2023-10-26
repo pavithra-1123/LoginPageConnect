@@ -63,7 +63,7 @@ margin-top: 70px;
     position: absolute;
     content: '';
     background-color: #0c1022;
-    border-radius: 50px 5px;
+    border-radius: 60px 5px;
     inset: 5px;
     padding: 50px 40px;
     z-index: 10;
@@ -79,23 +79,28 @@ h2{
 
 
 .input_text{
-    width: 95%;
-    height: 80px;
+    width: 75%;
+    height: 50px;
     background: transparent;
     border: none;
     outline: none;
-    border-bottom: 1px solid #00ccff;
+    border-bottom: 2px solid #00ccff;
+    border-radius: 10px;
     font-size: 20px;
-    padding-left: 10px;
+    padding-left: 5px;
     color: #00ccff;
 
 }
-
+.input_group{
+    padding: 20px;
+    margin-bottom: 30px;
+}
 ::placeholder{
     font-size: 20px;
     color: #00ccff52;
     letter-spacing: 1px;
 }
+
 
 .fa{
     font-size: 60px;
@@ -107,8 +112,8 @@ h2{
     width: 500px;
     height: 50px;
     transition: 1s;
-    margin-top: 70px;
-    margin-bottom: 60px;
+    margin-top: 140px;
+    margin-bottom: 20px;
 }
 
 #login_button a:hover{
@@ -134,6 +139,7 @@ h2{
 }
 #reset_button{
     position: relative;
+    color: #00ccff;
     width: 500px;
     height: 50px;
     transition: 1s;   
@@ -143,8 +149,12 @@ h2{
     background-color:#00ccff52;
     
 }
+#reset_button input:hover{
+    background-color:#00ccff52;
+    
+}
 
-#reset_button a{
+#reset_button a,input{
     position: absolute;
     width: 95%;
     height: 100%;
@@ -153,6 +163,7 @@ h2{
     cursor:pointer;
     font-size: 22px;
     letter-spacing: 2px;
+    color: #00ccff;
     border: 2px solid #00ccff;
     border-radius: 50px;
     background-color: #0c1022;
