@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #0c1022;
 }
 
 .container
@@ -15,10 +16,12 @@ background-color: #0c1022;
 border-radius: 50px 5px;
 display: flex;
 align-items: center;
+inset: 5px;
 justify-content: center;
 overflow: hidden;
 margin-top: 70px;
 }
+
 
 .container::before
 {
@@ -49,8 +52,11 @@ margin-top: 70px;
     }
 }
 
+
 .form_group{
     position: absolute;
+    width: 590px;
+    height: 640px;
     content: '';
     background-color: #0c1022;
     border-radius: 60px 5px;
@@ -64,4 +70,14 @@ h2{
     font-size: 50px;
     font-weight: 600;
     text-align: center;
+}
+
+.page
+{
+    position: relative;
+    width: 500px;
+    height: 100px;
+    max-width: 540px;
+    max-height: 100px;
+    
 }

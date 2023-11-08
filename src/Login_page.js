@@ -1,41 +1,32 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './Login_Style.css';
+// import './Login_Style.css';
 import Person4SharpIcon from '@mui/icons-material/Person4Sharp';
 import KeySharpIcon from '@mui/icons-material/KeySharp';
 import React, { useState } from 'react';
 import { Register } from './RegisterForm';
 import { Loadempdetails } from './Connect';
 
+
 export let LoginPage=()=>
 {
     const[cview,setCview]=useState(false)
-    const[username,setUsername]=useState({
-        "loginUsername":"",
-        "loginPassword":""
-    })
-    const loginvalues=(temp)=>{
-        const{name,value}=temp.target
 
-        setUsername((getting)=>
-        {
+    const[user,setUser]=useState({
+        "empUsername":"",
+        "empPassword":""
+    })
+
+    const onPerform=(eve)=>{
+        const{name,value}=eve.target
+        setUser((old)=>{
             return{
-                ...getting,
+                ...old,
                 [name]:value
             }
-        }) 
-    
+        })
     }
 
-    const submitvalues=()=>
-    {
-        alert("Login page Values "+JSON.stringify(username))
-    }
 
-    const resetvalues=()=>
-    {
-        setUsername('');
-        alert("Reset Login values")
-    }
     
     return(
         <>
@@ -48,46 +39,43 @@ export let LoginPage=()=>
             <>
             <div class="login_form_container">
             <div class="login_form">
-            <h2>LOGIN</h2>
+                <h2>LOGIN</h2>
             {/* <!-- username --> */}
             <div class="input_group">
-                
-                <input 
-                name="loginUsername"
-                type="text"
-                placeholder="username"
-                class="input_text"
-                autocomplete="off"
-                value={username.loginUsername}
-                onChange={loginvalues}
-                />
+            <label>Username </label>
+                                <input 
+                                type="text" 
+                                onChange={onPerform} 
+                                value={user.empUsername} 
+                                name="empUsername" 
+                                placeholder="Username please"
+                                className="form-control" />
             </div>
             {/* <!-- password --> */}
-            <div class="input_group">
-                {/* <!-- <img src="../imgs/pas.png" alt="fa"> --> */}
-                <input 
-                name="loginPassword"
-                type="password"
-                placeholder="password"
-                class="input_text"
-                autocomplete="off"
-                value={username.loginPassword}
-                onChange={loginvalues}
-                />
-            </div>
+            {/* <div class="input_group">
+                
+                <label>Password <KeySharpIcon></KeySharpIcon></label>
+                     <input 
+                        type="password" 
+                        onChange={onPerform} 
+                        value={user.empPassword} 
+                         name="empPassword" 
+                        placeholder="Password please" 
+                        className="form-control" />
+            </div> */}
             {/* <!-- submit --> */}
             <div class="button_group" id="login_button">
-                <button  className="col-5 btn btn-outline-primary"
+                
                  onClick={async()=>
                     {
                          // alert(user.username+":"+user.password);
                         // const temp=btoa(user);
                         // alert(temp) 
-                        const t=await Loadempdetails(username);
+                        const t=await Loadempdetails(user);
                         // alert(t.);
                         Window.location.assign("/");
-                    }}>Submit
-                </button>
+                    }} Login
+                
                 
             </div>
             <div class="button_group" id="reset_button" >
@@ -95,6 +83,7 @@ export let LoginPage=()=>
                 {
                     resetvalues()
                 }}/> */}
+                <label>reset</label>
                 <input type='reset' 
                 onClick={()=>
                     {
@@ -106,6 +95,11 @@ export let LoginPage=()=>
             <div class="fotter">
                 <a>Forget Password ?</a> 
                 <a>SignUp</a>
+                <a 
+                            onClick={()=>
+                            {
+                                setCview(true);
+                            }}>New Employee</a>
             </div>
         </div>
     </div>

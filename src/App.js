@@ -6,11 +6,11 @@ import { Login } from './Login_page1';
 import { ViewSlips } from './Slip';
 import { NewPaySlip } from './NewSlip';
 import { Profile } from './Profile_Update';
+import { LoginPage } from './Login_page';
 
 function App() {
   return (
     <>
-    
      {
       (sessionStorage.getItem("user"))?
     <>

@@ -7,8 +7,9 @@ export const NewPaySlip=()=>
     const nav=useNavigate();
     const[slip,setSlip]=useState({
         "payslipDate":"",
-        "payslipAllowance":0.0,
-        "paysilpTds":0.0,
+        "paysilpTds":0,
+        "payslipAllowance":0,
+        
     })
 
     const hello=(eve)=>{
@@ -45,14 +46,19 @@ export const NewPaySlip=()=>
                         </div>
                         <div className="form group">
                             <label>Payslip tds </label>
-                            <input type="text" placeholder="TDS" className="form-control" name="paysilpTds" value={slip.paysilpTds} onChange={hello} />
+                            <input type="text" 
+                            placeholder="TDS" 
+                            className="form-control" 
+                            name="paysilpTds" 
+                            value={slip.paysilpTds} 
+                            onChange={hello} />
                         </div>
                         <div className="form group">
                             <label>Payslip allowances </label>
                             <input type="text" placeholder="allowance" name="payslipAllowance" className="form-control" value={slip.payslipAllowance} onChange={hello} />
                         </div>
                         <div className="mt-3 row justify-content-around">
-                            <button className="btn btn-outline-primary col-2" onClick={onAdd()}>
+                            <button className="btn btn-outline-primary col-2" onClick={()=>onAdd()}>
                                 <i class="bi bi-database-add"></i>ADD
                             </button>
                             <button className="btn btn-outline-dark col-2" type="reset">

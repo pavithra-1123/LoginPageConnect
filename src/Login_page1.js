@@ -3,7 +3,7 @@ import { Register } from "./RegisterForm";
 // import Person4SharpIcon from '@mui/icons-material/Person4Sharp';
 import KeySharpIcon from '@mui/icons-material/KeySharp';
 import { Loadempdetails } from "./Connect";
-//import './Login_Style1.css';
+import './Login_Style1.css';
 
 export const Login=()=>{
 
@@ -37,9 +37,10 @@ export const Login=()=>{
             <>
                 <div className="container">
                     <div className="row justify-content-center mt-5">
-                        <div className="col-lg-6 col-md-8 col-sm-12 p-5 shadow-lg">
+                        <div className="col-lg-6 col-md-8 col-sm-12 p-5 shadow-lg form_group ">
+                            <div className="page">
                             <h2>LOGIN</h2>
-                            <div className="form_group">
+                            <div className="page">
                                 <label>Username </label>
                                 <input 
                                 type="text" 
@@ -49,7 +50,7 @@ export const Login=()=>{
                                 placeholder="Username please"
                                 className="form-control" />
                             </div>
-                            <div className="form_group">
+                            <div className="page">
                                 <label>Password <KeySharpIcon></KeySharpIcon></label>
                                 <input 
                                 type="password" 
@@ -59,8 +60,8 @@ export const Login=()=>{
                                 placeholder="Password please" 
                                 className="form-control" />
                             </div>
-                            <div className="row justify-content-around mt-3">
-                                <button className="col-3 btn btn-outline-primary form_group"
+                            <div className="row justify-content-around mt-3 ">
+                                <button className="col-3 btn btn-outline-primary "
                                 onClick={async()=>
                                 {
                                      // alert(user.username+":"+user.password);
@@ -72,15 +73,18 @@ export const Login=()=>{
                                 }}>
                                     <i class="bi bi-box-arrow-in-right"></i>Login
                                 </button>
-                                <button className="col-3 btn btn-outline-dark form_group" type="reset">
+                                <button className="col-3 btn btn-outline-dark " type="reset">
                                     <i class="bi bi-x-circle-fill"></i>Cancel
                                 </button>
-                            </div>
+                            </div><br/><br/>
+                            <button className="col-3 btn btn-outline-light ">
                             <a 
                             onClick={()=>
                             {
                                 setCview(true);
-                            }}>New Employee</a>
+                            }}>New Employee</a> 
+                            </button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { getDetails, onUpdate } from "./Connect"
 
 export const Profile=()=>
 {
@@ -9,8 +10,20 @@ export const Profile=()=>
         "password":"",
         "empDesignation":"",
         "empExperience":"",
-        "empSalary":0
+        "empSalary":0.0
     })
+    const loading=async()=>
+    {
+        const t=await getDetails()
+        setProcess(t.data);
+    }
+
+    useEffect(()=>
+    {
+        loading()
+    },[])
+
+
 
     const track=(data)=>
     {
@@ -24,6 +37,13 @@ export const Profile=()=>
                 }
             }
         )
+    }
+
+    const Update=async()=>
+    {
+        const t=await onUpdate(process);
+        alert(t.data);
+        window.location.assign("/");
     }
 
 
@@ -108,7 +128,7 @@ export const Profile=()=>
                         />
                     </div>
                     <div className="row justify-content-around mt-4">
-                        <button className="btn btn-outline-success col-3 ms-3"  >Update</button>
+                        <button className="btn btn-outline-success col-3 ms-3"  onClick={Update}>Update</button>
                         <button className="btn btn-outline-danger col-3 me-3"  type="reset" value="Reset" >Reset</button>
                     </div>
                 </div>
